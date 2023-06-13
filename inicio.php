@@ -21,41 +21,17 @@
     <link rel="stylesheet" href="estilos_cliente.css">
     <title>Cliente</title>
 </head>
-<body onclick = "PlayAudio">
+<body>
     <header class="header">
         <nav class="navbar">
             <a href="#">Catálogo</a>
             <a href="#">Carrito</a>
             <a href="#">Perfil</a>
             <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+            <audio control autoplay src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mpeg"></audio>
         </nav>
-    </header>
-    
-    <audio controls id="musica1" src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mp3 "></audio>
-
-    <script>
-        function PlayAudio(){
-            document.getElementById("musica1").play();
-        }
-    </script>
-
-    <br>
-    
+    </header>    
     
 
-    <?php
-        include 'php/conexion.php';
-        $name = $_SESSION['usuario'];
-        $sql = "SELECT * FROM usuarios WHERE usuario='$name'";
-        $consulta = mysqli_query($conexion, $sql);
-        $row = mysqli_fetch_assoc($consulta);
-        if ($row) {
-            echo "Usuario: " . $row['usuario'] . "<br>";
-            echo "Correo: " . $row['correo'] . "<br>";
-        } else {
-            echo "No se encontraron resultados.";
-        }
-    ?>
-    
 </body>
 </html>
