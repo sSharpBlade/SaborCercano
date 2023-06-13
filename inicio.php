@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="estilos_cliente.css">
     <title>Cliente</title>
 </head>
-<body>
+<body onclick = "PlayAudio">
     <header class="header">
         <nav class="navbar">
             <a href="#">Catálogo</a>
@@ -31,8 +31,18 @@
         </nav>
     </header>
     
+    <audio controls id="musica1" src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mp3 "></audio>
+
+    <script>
+        function PlayAudio(){
+            document.getElementById("musica1").play();
+        }
+    </script>
+
     <br>
     
+    
+
     <?php
         include 'php/conexion.php';
         $name = $_SESSION['usuario'];
