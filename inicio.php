@@ -28,7 +28,7 @@
             <a href="#">Carrito</a>
             <a href="#">Perfil</a>
             <a href="php/cerrar_sesion.php">Cerrar sesión</a>
-            <audio control autoplay src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mpeg"></audio>
+            <audio autoplay src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mpeg"></audio>
         </nav>
     </header>    
     
