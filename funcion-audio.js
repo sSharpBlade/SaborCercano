@@ -1,6 +1,7 @@
 var audio = document.getElementById('miAudio');
 var playButton = document.getElementById('playButton');
-var progressBar = document.querySelector('.progress');
+var progressBar = document.querySelector('.progress-bar');
+var progress = document.querySelector('.progress');
 
 playButton.addEventListener('click', function() {
   if (audio.paused) {
@@ -13,6 +14,15 @@ playButton.addEventListener('click', function() {
 });
 
 audio.addEventListener('timeupdate', function() {
-  var progress = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.width = progress + '%';
+  var progressPercentage = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = progressPercentage + '%';
+});
+
+progressBar.addEventListener('click', function(event) {
+  var progressBarWidth = progressBar.offsetWidth;
+  var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+  var duration = audio.duration;
+  
+  var currentTime = (clickX / progressBarWidth) * duration;
+  audio.currentTime = currentTime;
 });
