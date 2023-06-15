@@ -2,7 +2,18 @@
     session_start();
 
     if (isset($_SESSION['usuario'])) {
-        header("location: inicio.php");
+        include 'php/conexion.php';
+        $name = $_SESSION['usuario'];
+        $sql = "SELECT * FROM usuarios WHERE usuario='$name'";
+        $consulta = mysqli_query($conexion, $sql);
+        $row = mysqli_fetch_assoc($consulta);
+        if ($row) {
+            if ($row['usuario'] != "admin") {
+                header("location: inicio.php");        
+            }else{
+                header("location: admin.php");
+            }
+        }
     }
 ?>
 
