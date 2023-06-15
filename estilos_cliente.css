@@ -7,6 +7,10 @@
     font-family: 'Poppins',sans-serif;
 }
 
+body{
+  background: #020410;
+}
+
 .header{
     position: fixed;
     top: 0;
@@ -48,48 +52,35 @@
     opacity: 1;
 }
 
-.song{
-    width: 250px;
-    height: 45px;
-    background: transparent;
-    border: 2px solid #e4e4e4;
-    display: flex;
-    align-items: center;
+.audio-controls {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
 }
 
-.audio-controls {
-    display: flex;
-    align-items: center;
-  }
-  
-  .play-button {
-    width: 40px;
-    height: 40px;
-    background-color: #ff4081;
-    border: none;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .progress-bar {
-    width: 200px;
-    height: 4px;
-    background-color: #f2f2f2;
-    position: relative;
-  }
-  
-  .progress {
-    width: 0;
-    height: 100%;
-    background-color: #ff4081;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: width 0.2s;
-  }
-  
+.play-button {
+  width: 40px;
+  height: 40px;
+  background-color: #e4e4e4;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
 
-body{
-    background: #020410;
+.progress-bar {
+  width: 200px;
+  height: 8px;
+  background-color: #e4e4e4;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #2e2e2e;
+  border-radius: 4px;
+  width: 0;
 }
