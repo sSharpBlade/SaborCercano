@@ -28,7 +28,9 @@
             <a href="#">Carrito</a>
             <a href="#">Perfil</a>
             <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+            
             <audio id="miAudio" src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mpeg"></audio>
+            
             <div class="audio-controls">
               <button id="playButton" class="play-button"></button>
               <div class="progress-bar">
