@@ -1,0 +1,121 @@
+.contCards{
+    padding: 70px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    position: relative;
+    width: 320px;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.card > * {
+    margin-bottom: 15px;
+}
+
+.card .imgBx{
+    position: relative;
+    width: 100%;
+    height: 230px;
+    border-radius: 15px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.card .imgBx::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 #020410;
+}
+
+.card .imgBx::after{
+    content: '';
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 #020410;
+}
+
+.card .content{
+    position: relative;
+    width: 100%;
+    height: 35px;
+    background: white;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    padding: 0 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .content h4{
+    color: #020410;
+}
+
+.card .content .price{
+    position: absolute;
+    top: -80px;
+    left: 0;
+    height: 80px;
+    width: 50%;
+    background: white;
+    border-top: 15px solid #020410;
+    border-right: 15px solid #020410;
+    border-top-right-radius: 25px;
+}
+
+.card .content .price ::before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px -10px 0 #020410;
+}
+
+.card .content .price ::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 transparent;
+}
+
+.card .content .price .a{
+    width: 80%;
+    position: relative;
+    background: #020410;
+    padding: 10px 20px;
+    margin: 15px 15px;
+    display: block;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+

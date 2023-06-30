@@ -22,4 +22,3 @@ if (mysqli_num_rows($validar) == 1) {
         header("location: ../index.php");
         exit;
     }
-?>
