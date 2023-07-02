@@ -52,6 +52,10 @@ body{
     opacity: 1;
 }
 
+.navbar .cs:hover{
+  color: red;
+}
+
 .audio-controls {
   position: fixed;
   top: 25px;
