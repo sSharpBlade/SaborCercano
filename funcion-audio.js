@@ -17,18 +17,3 @@ playButton.addEventListener('click', function() {
     isPlaying = false;
   }
 });
-
-audio.addEventListener('timeupdate', function() {
-  var progressPercentage = (audio.currentTime / audio.duration) * 100;
-  progress.style.width = progressPercentage + '%';
-});
-
-progressBar.addEventListener('click', function(event) {
-  var progressBarWidth = progressBar.offsetWidth;
-  var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-  var duration = audio.duration;
-  
-  var currentTime = (clickX / progressBarWidth) * duration;
-  audio.currentTime = currentTime;
-});
-

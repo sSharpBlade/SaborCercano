@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include 'php/conexion.php';
+require 'php/config.php';
+
 if (!isset($_SESSION['usuario'])) {
     echo '<script>
             alert("Por favor inicie sesión");
@@ -8,11 +11,17 @@ if (!isset($_SESSION['usuario'])) {
         </script>';
     session_destroy();
     die();
+} else {
+    $name = $_SESSION['usuario'];
+    $db = new DataBase();
+    $con = $db->conectar();
+    $sql = $con->prepare("SELECT * FROM usuarios WHERE usuario=?");
+    $sql->execute([$name]);
+    $row = $sql->fetch(PDO::FETCH_ASSOC);
+    $id_cliente = $row['id'];
 }
 //session_destroy();
 
-include 'php/conexion.php';
-require 'php/config.php';
 $db = new DataBase();
 $con = $db->conectar();
 
@@ -39,6 +48,7 @@ if ($producto != null) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos_cliente.css">
+    <link rel="stylesheet" href="estilos_perfil.css">
     <title>Perfil</title>
 </head>
 
@@ -56,9 +66,35 @@ if ($producto != null) {
         </nav>
     </header>
     <main>
-        
+        <div class="formulario">
+            <p class="text">Usuario:</p>
+            <input type="text" id="usuario" value="<?php echo $row['usuario'] ?>">
+            <br><br>
+            <p class="text">Correo:</p>
+            <input type="mail" id="correo" value="<?php echo $row['correo'] ?>">
+            <br><br>
+            <p class="text">Contraseña:</p>
+            <button type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
+            <input type="password" id="passwordInput">
+            <br><br>
+            <hr>
+        </div>
     </main>
     <script src="funcion-audio.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("passwordInput");
+            var toggleButton = document.getElementById("toggleButton");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.textContent = "Ocultar";
+            } else {
+                passwordInput.type = "password";
+                toggleButton.textContent = "Mostrar";
+            }
+        }
+    </script>
 </body>
 
 </html>

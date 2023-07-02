@@ -73,18 +73,3 @@ body{
   cursor: pointer;
   outline: none;
 }
-
-.progress-bar {
-  width: 200px;
-  height: 8px;
-  background-color: #e4e4e4;
-  margin-left: 10px;
-  border-radius: 4px;
-}
-
-.progress {
-  height: 100%;
-  background-color: #2e2e2e;
-  border-radius: 4px;
-  width: 0;
-}
