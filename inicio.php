@@ -42,12 +42,12 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             <a href="checkout.php">Carrito <span id="num_cart"><?php echo $num_cart; ?></span></a>
             <a href="#">Perfil</a>
             <a href="php/cerrar_sesion.php">Cerrar sesión</a>
-            <audio loop id="miAudio" src="music/Metro Boomin - Calling (Spider-Man_ Across the Spider-Verse).mp3" type="audio/mpeg"></audio>
+            <audio loop id="miAudio" src="music/spider.mp3" type="audio/mpeg"></audio>
             <div class="audio-controls">
                 <button id="playButton" class="play-button"></button>
-                <div class="progress-bar">
+                <!-- <div class="progress-bar">
                     <div class="progress"></div>
-                </div>
+                </div> -->
             </div>
         </nav>
     </header>
