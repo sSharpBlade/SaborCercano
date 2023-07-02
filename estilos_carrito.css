@@ -1,3 +1,97 @@
-.th{
-    color: white;
-}
+.table {
+    width: 80%;
+    margin: 10% auto; 
+    background-color: #f1f1f16c; 
+    border-collapse: collapse; 
+    border-radius: 15px;
+  }
+  
+  .table th {
+    background-color: #333; 
+    color: white; 
+    padding: 10px; 
+  }
+  
+  .table td {
+    color: #dbdbdb;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .table td p{
+    font-size: 20px;
+  }
+
+  .table tr:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .table tr:hover td {
+    color: #333;
+  }
+
+  .table .btn{
+    color: wheat;
+    background: red;
+    text-decoration: none;
+    padding: 0 5px;
+    border-radius: 10px;
+    font-size: auto;
+  }
+  
+  .pago {
+    text-align: right;
+  }
+  
+  .btn_pago {
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+  } 
+
+  .btn_pago{
+    margin: -7% 27%;
+  }
+
+  .btn_pago::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      red, blue, deeppink, blue, red, blue, deeppink, blue
+    );
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+  }
+
+  @keyframes glowing {
+    0%{
+      background-position: 0 0;
+    }
+
+    50%{
+      background-position: 400% 0;
+    }
+
+    0%{
+      background-position: 0 0;
+    }
+  }
+    
+  @keyframes scale-up-center{ 
+    0%{transform:scale(.5)} 
+    100%{transform:scale(1)}
+  }

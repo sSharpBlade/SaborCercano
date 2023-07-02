@@ -90,7 +90,7 @@ print_r($_SESSION);
                 }).then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        let elemento = document.getElementById("numCart")
+                        let elemento = document.getElementById("num_cart")
                         elemento.innerHTML = data.numero
                     }
                 })

@@ -1,13 +1,13 @@
 main{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    
+    align-items: center;
 }
 
 .contCards{
     padding: 70px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
