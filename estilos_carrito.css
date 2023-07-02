@@ -49,6 +49,7 @@
   }
   
   .btn_pago {
+    text-decoration: none;
     background: black;
     cursor: pointer;
     border: none;
@@ -100,3 +101,49 @@
     0%{transform:scale(.5)} 
     100%{transform:scale(1)}
   }
+
+  .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+  }
+
+  .row .paga{
+    width: 45%;
+    margin-top: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row .map{
+    margin-top: 7%;
+  }
+
+  .formulario{
+    color: whitesmoke;
+    width: 80%;
+    margin: 79px auto; 
+    background-color: transparent; 
+    border: white ;
+}
+
+.formulario .contra{
+    display: flex;
+}
+
+.formulario .text{
+    font-size: 24px;
+}
+
+.formulario input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    padding-right: 28px;
+}

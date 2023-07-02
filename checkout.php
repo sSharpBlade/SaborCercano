@@ -106,7 +106,7 @@ if ($producto != null) {
             </div>
             <?php if ($lista_carrito != null) { ?>
                 <div class="pago">
-                    <button type="button" class="btn_pago">Completar compra</button>
+                    <a type="button" class="btn_pago" href="pago.php">Completar compra</a>
                 </div>
             <?php } ?>
         </div>

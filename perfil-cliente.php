@@ -89,7 +89,6 @@ if ($producto != null) {
             <br>
             <button class="uCliente" type="button">Guardar cambios</button>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63821.72752710952!2d-78.69535478165557!3d-1.2571425592900651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d381a37fef551f%3A0x7a2dbc24d832161b!2sAmbato!5e0!3m2!1ses-419!2sec!4v1688335422248!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </main>
     <script src="funcion-audio.js"></script>
     <script>
