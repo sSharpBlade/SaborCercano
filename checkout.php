@@ -18,7 +18,7 @@ $con = $db->conectar();
 
 $producto = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
 
-print_r($_SESSION);
+//print_r($_SESSION);
 
 $lista_carrito = array();
 

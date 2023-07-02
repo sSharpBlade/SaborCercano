@@ -38,6 +38,11 @@
     border-radius: 10px;
     font-size: auto;
   }
+
+  .table .btn:hover{
+    color: rgb(255, 99, 99);
+    background: gray;
+  }
   
   .pago {
     text-align: right;
@@ -69,7 +74,7 @@
     height: 100%;
     background: linear-gradient(
       45deg,
-      red, blue, deeppink, blue, red, blue, deeppink, blue
+      #3F2305, #DFD7BF, #F2EAD3, #F5F5F5, #3F2305, #DFD7BF, #F2EAD3, #F5F5F5
     );
     background-size: 800%;
     border-radius: 10px;

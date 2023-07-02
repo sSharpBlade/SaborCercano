@@ -15,25 +15,18 @@ main{
 .card{
     position: relative;
     width: 320px;
-    height: 390px;
+    height: 265px;
     display: flex;
     flex-direction: column;
     margin: 20px;
 }
 
-.card > * {
-    margin-bottom: 15px;
-}
-
 .card .imgBx{
+    overflow: hidden;
     position: relative;
     width: 100%;
     height: 230px;
     border-radius: 15px;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
 }
 
 .card .imgBx::before{

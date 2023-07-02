@@ -20,7 +20,7 @@ $sql = $con->prepare("SELECT * FROM saborcercano.productos;");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($_SESSION);
+//print_r($_SESSION);
 
 ?>
 <!DOCTYPE html>
@@ -62,7 +62,11 @@ print_r($_SESSION);
                         $img = "img/cafe.jpg";
                     }
                     ?>
-                    <div class="imgBx" style="background: url(<?php echo $img ?>);">
+                    <div class="imgBx" style="
+                    background: url(<?php echo $img ?>); 
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;">
                     </div>
                     <div class="content">
                         <span class="price">

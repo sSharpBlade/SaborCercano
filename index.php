@@ -1,24 +1,25 @@
 <?php
-    session_start();
+session_start();
 
-    if (isset($_SESSION['usuario'])) {
-        include 'php/conexion.php';
-        $name = $_SESSION['usuario'];
-        $sql = "SELECT * FROM usuarios WHERE usuario='$name'";
-        $consulta = mysqli_query($conexion, $sql);
-        $row = mysqli_fetch_assoc($consulta);
-        if ($row) {
-            if ($row['usuario'] != "admin") {
-                header("location: inicio.php");        
-            }else{
-                header("location: admin.php");
-            }
+if (isset($_SESSION['usuario'])) {
+    include 'php/conexion.php';
+    $name = $_SESSION['usuario'];
+    $sql = "SELECT * FROM usuarios WHERE usuario='$name'";
+    $consulta = mysqli_query($conexion, $sql);
+    $row = mysqli_fetch_assoc($consulta);
+    if ($row) {
+        if ($row['usuario'] != "admin") {
+            header("location: inicio.php");
+        } else {
+            header("location: admin.php");
         }
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +29,7 @@
     <link rel="icon" type="image/icon" href="img/coffee.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <div class="fondo"></div>
     <div class="container">
@@ -37,9 +39,9 @@
                 <h2>¡Bienvenido y Disfruta de tu café!</h2>
                 <p>Imagina un lugar donde los sabores exquisitos y los aromas tentadores se unen para despertar tus sentidos. Nuestros baristas expertos han seleccionado cuidadosamente los granos más finos de café de todo el mundo para brindarte una experiencia única en cada taza.</p>
                 <div class="social">
-                    <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
-                    <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
-                    <a href="#"><i class='bx bxl-tiktok' ></i></a>
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-tiktok'></i></a>
                 </div>
             </div>
         </div>
@@ -55,7 +57,7 @@
                     </div>
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-key'></i></span>
-                        <input type="password" name="pass" required >
+                        <input type="password" name="pass" required>
                         <label>contraseña</label>
                     </div>
 
@@ -107,4 +109,5 @@
     </div>
     <script src="funcion.js"></script>
 </body>
+
 </html>
