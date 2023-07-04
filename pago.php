@@ -88,6 +88,7 @@ if ($producto != null) {
                                     echo '<tr><td colspan="5" class="text-center"><b>Lista Vacia</b></td></tr>';
                                 } else {
                                     $total = 0;
+                                    $idCliente = $id_cliente;
                                     foreach ($lista_carrito as $producto) {
                                         $_id = $producto['id'];
                                         $nombre = $producto['name'];
@@ -122,7 +123,8 @@ if ($producto != null) {
                     </div>
                     <?php if ($lista_carrito != null) { ?>
                         <div class="pago">
-                            <a type="button" class="btn_pago">Completar compra</a>
+                                <button type="submit" class="btn_pago">Completar compra</button>
+                            </form>
                         </div>
                     <?php } ?>
                 </div>
@@ -130,55 +132,6 @@ if ($producto != null) {
         </div>
     </main>
     <script src="funcion-audio.js"></script>
-    <script>
-        function actualizaCantidad(cantidad, id) {
-            let url = 'actualizar_carrito.php'
-            let formData = new FormData()
-            formData.append('id', id)
-            formData.append('cantidad', cantidad)
-            formData.append('action', 'agregar')
-
-            fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'cors'
-                }).then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        let divSubtotal = document.getElementById('subtotal_' + id)
-                        divSubtotal.innerHTML = data.sub
-
-                        let total = 0.00
-                        let list = document.getElementsByName('subtotal[]')
-                        for (let i = 0; i < list.length; i++) {
-                            total += parseFloat(list[i].innerHTML.replace(/[$,]/g, ''))
-                        }
-                        total = new Intl.NumberFormat('en-US', {
-                            minimumFractionDigits: 2
-                        }).format(total)
-                        document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
-                    }
-                })
-        }
-
-        let eliminarModal = document.getElementById('eliminar')
-
-        function eliminar(id) {
-            let url = 'actualizar_carrito.php'
-            let formData = new FormData()
-            formData.append('id', id)
-            formData.append('action', 'eliminar')
-
-            fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'cors'
-                }).then(response => response.json())
-                .then(data => {
-                    location.reload()
-                })
-        }
-    </script>
 </body>
 
 </html>
