@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
             window.location = "index.php";

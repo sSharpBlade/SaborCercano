@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['id'])) {
     include 'php/conexion.php';
-    $name = $_SESSION['usuario'];
-    $sql = "SELECT * FROM usuarios WHERE usuario='$name'";
+    $id = $_SESSION['id'];
+    $sql = "SELECT * FROM usuarios WHERE id='$id'";
     $consulta = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_assoc($consulta);
     if ($row) {

@@ -2,14 +2,13 @@
 include 'php/conexion.php';
 require 'php/config.php';
 
-
-$name = $_SESSION['usuario'];
+$id = $_SESSION['id'];
 $db = new DataBase();
 $con = $db->conectar();
-$sql = $con->prepare("SELECT * FROM usuarios WHERE usuario=?");
-$sql->execute([$name]);
+$sql = $con->prepare("SELECT * FROM usuarios WHERE id=?");
+$sql->execute([$id]);
 $row = $sql->fetch(PDO::FETCH_ASSOC);
-$id_cliente = $row['id'];
+$id_cliente = $_SESSION['id'];
 
 $producto = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
 
@@ -27,13 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
 
-    $total = 0;
-    foreach ($lista_carrito as $producto) {
-        $precio = $producto['price'];
-        $cantidad = $producto['cantidad'];
-        $subtotal = $cantidad * $precio;
-        $total += $subtotal;
-    }
+    $total = $_SESSION['total'];
 
     $sql = $con->prepare("INSERT INTO pedidos (id_usuario, id_producto, cantidad, total, telefono, direccion) VALUES (?, ?, ?, ?, ?, ?)");
 
@@ -43,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($lista_carrito as $producto) {
             $id_producto = $producto['id'];
             $cantidad = $producto['cantidad'];
-
             $sql->execute([$id_cliente, $id_producto, $cantidad, $total, $telefono, $direccion]);
         }
         $con->commit();

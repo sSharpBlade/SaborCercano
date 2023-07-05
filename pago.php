@@ -4,7 +4,7 @@ require 'php/config.php';
 
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
             window.location = "index.php";
@@ -12,11 +12,11 @@ if (!isset($_SESSION['usuario'])) {
     session_destroy();
     die();
 } else {
-    $name = $_SESSION['usuario'];
+    $id = $_SESSION['id'];
     $db = new DataBase();
     $con = $db->conectar();
-    $sql = $con->prepare("SELECT * FROM usuarios WHERE usuario=?");
-    $sql->execute([$name]);
+    $sql = $con->prepare("SELECT * FROM usuarios WHERE id=?");
+    $sql->execute([$id]);
     $row = $sql->fetch(PDO::FETCH_ASSOC);
     $id_cliente = $row['id'];
 }
@@ -95,7 +95,7 @@ if ($producto != null) {
                                             $precio = $producto['price'];
                                             $cantidad = $producto['cantidad'];
                                             $subtotal = $cantidad * $precio;
-                                            $total += $subtotal;
+                                            //$total += $subtotal;
                                     ?>
                                             <tr>
                                                 <td><?php echo $nombre; ?></td>
@@ -107,7 +107,7 @@ if ($producto != null) {
                                         <tr>
                                             <td colspan="1"></td>
                                             <td>
-                                                <p id="total">Total: <?php echo MONEDA . number_format($total, 2, '.', ','); ?></p>
+                                                <p id="total">Total: <?php echo MONEDA . number_format($_SESSION['total'], 2, '.', ','); ?></p>
                                             </td>
                                         </tr>
                                 </tbody>

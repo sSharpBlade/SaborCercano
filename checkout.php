@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
             window.location = "index.php";
@@ -80,7 +80,7 @@ if ($producto != null) {
                                 $precio = $producto['price'];
                                 $cantidad = $producto['cantidad'];
                                 $subtotal = $cantidad * $precio;
-                                $total += $subtotal;
+                                $_SESSION['total'] = $total += $subtotal;
                         ?>
                                 <tr>
                                     <td><?php echo $nombre; ?></td>
@@ -97,18 +97,26 @@ if ($producto != null) {
                             <tr>
                                 <td colspan="3"></td>
                                 <td>
-                                    <p id="total">Total: <?php echo MONEDA . number_format($total, 2, '.', ','); ?></p>
+                                    <p id="total">Total: <?php echo MONEDA . number_format($_SESSION['total'], 2, '.', ','); ?></p>
                                 </td>
                             </tr>
                     </tbody>
                 <?php } ?>
                 </table>
+                <form action="aplicar_descuento.php" method="POST">
+                    <input type="text" name="codigo_descuento" placeholder="Ingrese el código de descuento" class="descuento">
+                    <div class="pago">
+                        <button type="submit" class="btn_pago">Completar compra</button>
+                    </div>
+                </form>
             </div>
+            <!--
             <?php if ($lista_carrito != null) { ?>
                 <div class="pago">
                     <a type="button" class="btn_pago" href="pago.php">Completar compra</a>
                 </div>
             <?php } ?>
+            -->
         </div>
     </main>
     <script src="funcion-audio.js"></script>

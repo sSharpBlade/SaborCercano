@@ -1,10 +1,11 @@
 <?php
-session_start();
 
 include 'php/conexion.php';
 require 'php/config.php';
 
-if (!isset($_SESSION['usuario'])) {
+session_start();
+
+if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
             window.location = "index.php";
@@ -12,32 +13,16 @@ if (!isset($_SESSION['usuario'])) {
     session_destroy();
     die();
 } else {
-    $name = $_SESSION['usuario'];
+    $id = $_SESSION['id'];
     $db = new DataBase();
-    $con = $db->conectar();
-    $sql = $con->prepare("SELECT * FROM usuarios WHERE usuario=?");
-    $sql->execute([$name]);
+    $con = $db->conectar();    
+    $sql = $con->prepare("SELECT * FROM usuarios WHERE id=?");
+    $sql->execute([$id]);
     $row = $sql->fetch(PDO::FETCH_ASSOC);
     $id_cliente = $row['id'];
 }
 //session_destroy();
-
-$db = new DataBase();
-$con = $db->conectar();
-
-$producto = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
-
 //print_r($_SESSION);
-
-$lista_carrito = array();
-
-if ($producto != null) {
-    foreach ($producto as $clave => $cantidad) {
-        $sql = $con->prepare("SELECT *, $cantidad AS cantidad FROM productos WHERE id=?");
-        $sql->execute([$clave]);
-        $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
-    }
-}
 
 ?>
 <!DOCTYPE html>
@@ -67,27 +52,29 @@ if ($producto != null) {
     </header>
     <main>
         <div class="formulario">
-            <p class="text">Usuario:</p>
-            <input type="text" id="usuario" value="<?php echo $row['usuario'] ?>">
-            <br><br>
-            <p class="text">Correo:</p>
-            <input type="mail" id="correo" value="<?php echo $row['correo'] ?>">
-            <br><br>
-            <p class="text">Contraseña:</p>
-            <div class="contra">
-                <button type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
-                <input type="password" id="passwordInput">
-            </div>
-            <br>
-            <p class="text">Teléfono:</p>
-            <input type="text" id="telefono" value="<?php echo $row['telefono'] ?>">
-            <br><br>
-            <p class="text">Dirección:</p>
-            <input type="text" id="direccion" value="<?php echo $row['direccion'] ?>">
-            <br><br>
-            <hr>
-            <br>
-            <button class="uCliente" type="button">Guardar cambios</button>
+            <form action="actualizar_cliente.php" method="post">
+                <p class="text">Usuario:</p>
+                <input type="text" id="nombre" value="<?php echo $row['usuario']; ?>" name="nombre">
+                <br><br>
+                <p class="text">Correo:</p>
+                <input type="email" name="correo" value="<?php echo $row['correo']; ?>">
+                <br><br>
+                <p class="text">Contraseña:</p>
+                <div class="contra">
+                    <button type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
+                    <input type="password" id="passwordInput" value="<?php echo $row['pass']; ?>">
+                </div>
+                <br>
+                <p class="text">Teléfono:</p>
+                <input type="text" name="telefono" value="<?php echo $row['telefono']; ?>">
+                <br><br>
+                <p class="text">Dirección:</p>
+                <input type="text" name="direccion" value="<?php echo $row['direccion']; ?>">
+                <br><br>
+                <hr>
+                <br>
+                <button class="uCliente" type="submit">Guardar cambios</button>
+            </form>
         </div>
     </main>
     <script src="funcion-audio.js"></script>
