@@ -13,14 +13,25 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilos_admin.css">
+    <title>Productos</title>
 </head>
 <body>
-    <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+    <nav>
+        <a href="admin.php">Productos</a>
+        <a href="admin_descuentos.php">Descuentos</a>
+        <a href="admin_pedidos.php">Pedidos</a>
+        <a href="admin_perfil.php">Perfil</a>
+        <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+        <div class="animation start-product"></div>
+    </nav>
+    <main>
+        
+    </main>
 </body>
 </html>

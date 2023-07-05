@@ -6,19 +6,24 @@ $correo = $_POST['correo'];
 $pass = $_POST['pass'];
 //$pass = hash('sha512', $pass);
 
-$validar = mysqli_query($conexion, "SELECT * FROM usuarios  WHERE correo='$correo' AND pass='$pass'");
+$db = new DataBase();
+$con = $db->conectar();
 
-if (mysqli_num_rows($validar) == 1) {
-        session_start();
-        $data = mysqli_fetch_assoc($validar);
-        $name = $_SESSION['id'] = $data['id'];
-        if ($name == "admin") {
-            header("location: ../admin.php");
-            exit;    
-        }
-        header("location: ../inicio.php");
-        exit;
-    }else{
-        header("location: ../index.php");
+$sql = $con->prepare("SELECT * FROM usuarios WHERE correo='$correo' AND pass='$pass'");
+$sql->execute();
+$row = $sql->fetch(PDO::FETCH_ASSOC);
+
+if ($row) {
+    session_start();
+    $name = $row['usuario'];
+    $_SESSION['id'] = $row['id'];
+    if ($name == "admin") {
+        header("location: ../admin.php");
         exit;
     }
+    header("location: ../inicio.php");
+    exit;
+} else {
+    header("location: ../index.php");
+    exit;
+}
