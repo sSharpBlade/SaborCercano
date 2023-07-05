@@ -147,3 +147,16 @@
     font-weight: 500;
     padding-right: 28px;
 }
+
+.descuento{
+    text-decoration: none;
+    background: black;
+    cursor: text;
+    border: none;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 5px;
+}

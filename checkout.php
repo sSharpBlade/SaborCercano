@@ -103,20 +103,15 @@ if ($producto != null) {
                     </tbody>
                 <?php } ?>
                 </table>
-                <form action="aplicar_descuento.php" method="POST">
-                    <input type="text" name="codigo_descuento" placeholder="Ingrese el código de descuento" class="descuento">
-                    <div class="pago">
-                        <button type="submit" class="btn_pago">Completar compra</button>
-                    </div>
-                </form>
+                <?php if ($lista_carrito != null) { ?>
+                    <form action="aplicar_descuento.php" method="POST">
+                        <div class="pago">
+                            <input type="text" name="codigo_descuento" placeholder="Descuento" class="descuento">
+                            <button type="submit" class="btn_pago">Completar compra</button>
+                        </div>
+                    </form>
+                <?php } ?>
             </div>
-            <!--
-            <?php if ($lista_carrito != null) { ?>
-                <div class="pago">
-                    <a type="button" class="btn_pago" href="pago.php">Completar compra</a>
-                </div>
-            <?php } ?>
-            -->
         </div>
     </main>
     <script src="funcion-audio.js"></script>
