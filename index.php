@@ -62,7 +62,7 @@ if (isset($_SESSION['id'])) {
                     </div>
 
                     <div class="olvido">
-                        <a href="#">¿Olvidaste tus datos?</a>
+                        <a href="https://www.youtube.com/shorts/6Y-fXu_bqvY">¿Olvidaste tus datos?</a>
                     </div>
 
                     <button type="submit" class="btn">Ingresar</button>
@@ -94,7 +94,7 @@ if (isset($_SESSION['id'])) {
 
                     <div class="olvido">
                         <label>
-                            <input type="checkbox" required> Acepta los <a href="#">términos y condiciones</a>
+                            <input type="checkbox" required> Acepta los <a href="https://www.youtube.com/watch?v=mCdA4bJAGGk&ab_channel=sweetblue.">términos y condiciones</a>
                         </label>
                     </div>
 
