@@ -16,8 +16,10 @@ $lista_carrito = array();
 
 if ($producto != null) {
     foreach ($producto as $clave => $cantidad) {
-        $sql = $con->prepare("SELECT *, $cantidad AS cantidad FROM productos WHERE id=?");
-        $sql->execute([$clave]);
+        $sql = $con->prepare("SELECT *, :cantidad AS cantidad FROM productos WHERE id=:id_producto");
+        $sql->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+        $sql->bindParam(':id_producto', $clave, PDO::PARAM_INT);
+        $sql->execute();
         $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
     }
 }
@@ -28,15 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $total = $_SESSION['total'];
 
-    $sql = $con->prepare("INSERT INTO pedidos (id_usuario, id_producto, cantidad, total, telefono, direccion) VALUES (?, ?, ?, ?, ?, ?)");
+    $sql = $con->prepare("INSERT INTO pedidos (id_cliente, total, telefono, direccion) VALUES (?, ?, ?, ?)");
 
     $con->beginTransaction();
 
     try {
+        $sql->execute([$id_cliente, $total, $telefono, $direccion]);
+        $pedido_id = $con->lastInsertId(); // Obtiene el ID del pedido insertado
+
+        $detalle_sql = $con->prepare("INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad) VALUES (?, ?, ?)");
+
         foreach ($lista_carrito as $producto) {
             $id_producto = $producto['id'];
             $cantidad = $producto['cantidad'];
-            $sql->execute([$id_cliente, $id_producto, $cantidad, $total, $telefono, $direccion]);
+            $detalle_sql->execute([$pedido_id, $id_producto, $cantidad]);
         }
         $con->commit();
 
