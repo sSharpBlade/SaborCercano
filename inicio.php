@@ -63,7 +63,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     }
                     ?>
                     <div class="imgBx" style="
-                    background: url(<?php echo $img ?>); 
+                    background: url(img/productos/<?php echo $row['img'] ?>); 
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;">
