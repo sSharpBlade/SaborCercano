@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Productos</title>
+    <title>Pedidos</title>
 </head>
 
 
@@ -46,8 +46,8 @@ if (!isset($_SESSION['id'])) {
                         <th>Producto</th>
                         <th>Cantidad</th>
                         <th>Total</th>
-                        <th>Telefono</th>
-                        <th>Direccion</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
                         <th class="opacity-0">list</th>
                     </tr>
                 </thead>
