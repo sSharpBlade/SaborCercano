@@ -106,7 +106,11 @@ if ($producto != null) {
                 <?php if ($lista_carrito != null) { ?>
                     <form action="aplicar_descuento.php" method="POST">
                         <div class="pago">
-                            <input type="text" name="codigo_descuento" placeholder="Descuento" class="descuento">
+                            <?php
+                            if ($_SESSION['total'] >= 10.00) { ?>
+                                <input type="text" name="codigo_descuento" placeholder="Descuento" class="descuento">
+                            <?php }
+                            ?>
                             <button type="submit" class="btn_pago">Completar compra</button>
                         </div>
                     </form>
@@ -142,6 +146,7 @@ if ($producto != null) {
                             minimumFractionDigits: 2
                         }).format(total)
                         document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
+                        location.reload()
                     }
                 })
         }
