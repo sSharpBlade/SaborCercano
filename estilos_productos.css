@@ -4,6 +4,12 @@ main{
     align-items: center;
 }
 
+h2{
+    margin: 0 25px;
+    color: #fff;
+    size: 16px;
+}
+
 .contCards{
     padding: 70px 0;
     display: flex;

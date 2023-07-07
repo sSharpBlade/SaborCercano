@@ -52,6 +52,53 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
         </nav>
     </header>
     <main>
+        <div class="favoritos">
+            <?php
+            $db = new DataBase();
+            $con = $db->conectar();
+            $id_cliente = $_SESSION['id'];
+            $fav = $con->query("SELECT p.*, COUNT(dp.id_producto) AS total_compras
+            FROM detalle_pedido dp
+            JOIN pedidos pe ON dp.id_pedido = pe.id
+            JOIN productos p ON dp.id_producto = p.id
+            WHERE pe.id_cliente = $id_cliente
+            GROUP BY dp.id_producto, p.id, p.name
+            ORDER BY total_compras DESC
+            LIMIT 3;
+            ");
+            if ($fav->rowCount() !== 0) {
+            ?>
+                <h2>Más comprados</h2>
+            <?php
+            }
+
+            foreach ($fav as $value) { ?>
+                <div class="card">
+                    <?php
+                    $id = $value['id'];
+                    $img = "img/productos/$id.jpg";
+                    if (!file_exists($img)) {
+                        $img = "img/cafe.jpg";
+                    }
+                    ?>
+                    <div class="imgBx" style="
+                        background: url(img/productos/<?php echo $value['img'] ?>); 
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;">
+                    </div>
+                    <div class="content">
+                        <span class="price">
+                            <button type="button" class="a" onclick="addProducto(<?php echo $value['id']; ?>, '<?php echo hash_hmac('sha1', $value['id'], KEY_TOKEN); ?>')">$<?php echo $value['price'] ?></button>
+                        </span>
+                        <h4><?php echo $value['name'] ?></h4>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+
+        <!--<?php if ($result) { ?> <h2 class="current">Productos actuales</h2> <?php } ?> -->
+
         <div class="contCards">
             <?php foreach ($result as $row) { ?>
                 <div class="card">
