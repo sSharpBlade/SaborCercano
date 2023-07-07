@@ -19,7 +19,7 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos_admin.css">
+    <link rel="stylesheet" href="css/estilos_admin.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -62,7 +62,7 @@ if (!isset($_SESSION['id'])) {
                     foreach ($result as $row) :
                     ?>
                         <tr class="bg-white align-middle">
-                            <td><img src="img/productos/<?php echo $row['img'] ?>" alt="img" height="50" with="50" ></td>
+                            <td><img src="img/productos/<?php echo $row['img'] ?>" alt="img" height="50" with="50"></td>
                             <td><?php echo $row['name'] ?></td>
                             <td><?php echo $row['price'] ?></td>
                             <td class="d-md-flex gap-3 mt-3">

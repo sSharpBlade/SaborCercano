@@ -15,7 +15,7 @@ if (!isset($_SESSION['id'])) {
 } else {
     $id = $_SESSION['id'];
     $db = new DataBase();
-    $con = $db->conectar();    
+    $con = $db->conectar();
     $sql = $con->prepare("SELECT * FROM usuarios WHERE id=?");
     $sql->execute([$id]);
     $row = $sql->fetch(PDO::FETCH_ASSOC);
@@ -32,8 +32,8 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos_cliente.css">
-    <link rel="stylesheet" href="estilos_perfil.css">
+    <link rel="stylesheet" href="css/estilos_cliente.css">
+    <link rel="stylesheet" href="css/estilos_perfil.css">
     <title>Perfil</title>
 </head>
 

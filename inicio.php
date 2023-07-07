@@ -30,8 +30,8 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos_cliente.css">
-    <link rel="stylesheet" href="estilos_productos.css">
+    <link rel="stylesheet" href="css/estilos_cliente.css">
+    <link rel="stylesheet" href="css/estilos_productos.css">
     <title>Inicio</title>
 </head>
 
