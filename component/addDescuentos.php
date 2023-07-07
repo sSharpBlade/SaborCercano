@@ -11,11 +11,11 @@
                     <form method="POST" action="adddescuento.php" enctype="multipart/form-data">
                         <div class="">
                             <label for="recipient-name" class="col-form-label">Código:</label>
-                            <input type="text" class="form-control" id="recipient-name" name="Codigo">
+                            <input type="text" class="form-control" id="recipient-name" name="Codigo" required>
                         </div>
                         <div class="">
                             <label for="recipient-name" class="col-form-label">Porcentaje:</label>
-                            <input type="text" class="form-control" id="recipient-name" name="Porcentaje">
+                            <input type="text" class="form-control" id="recipient-name" name="Porcentaje" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

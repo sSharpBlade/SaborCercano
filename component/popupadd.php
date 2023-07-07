@@ -15,11 +15,11 @@
                         </div>
                         <div class="">
                             <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="recipient-name" name="Name">
+                            <input type="text" class="form-control" id="recipient-name" name="Name" required>
                         </div>
                         <div class="">
                             <label for="recipient-name" class="col-form-label">Precio:</label>
-                            <input type="text" class="form-control" id="recipient-name" name="Price">
+                            <input type="text" class="form-control" id="recipient-name" name="Price" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
