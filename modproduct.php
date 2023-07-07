@@ -20,11 +20,20 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/estilos_admin.css">
 </head>
 
 <body>
+    <nav>
+        <a href="admin.php" style="color: white;">Productos</a>
+        <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
+        <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
+        <a href="admin_perfil.php" style="color: white;">Perfil</a>
+        <a href="php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
+        <div class="animation start-product"></div>
+    </nav>
     <?php
     include 'php/conexion.php';
     $_SESSION['producto'] = $_GET['Id'];
@@ -37,8 +46,6 @@ if (!isset($_SESSION['id'])) {
 
     ?>
     <div class="container w-50">
-
-
         <form method="POST" action="upproducto.php" enctype="multipart/form-data">
             <div class="">
                 <label for="recipient-name" class="col-form-label">Imagen:</label>

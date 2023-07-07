@@ -29,11 +29,11 @@ if (!isset($_SESSION['id'])) {
 
 <body class="bg-content">
     <nav>
-        <a href="admin.php">Productos</a>
-        <a href="admin_descuentos.php">Descuentos</a>
-        <a href="admin_pedidos.php">Pedidos</a>
-        <a href="admin_perfil.php">Perfil</a>
-        <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+        <a href="admin.php" style="color: white;">Productos</a>
+        <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
+        <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
+        <a href="admin_perfil.php" style="color: white;">Perfil</a>
+        <a href="php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
         <div class="animation start-product"></div>
     </nav>
     <main class="dashboard">

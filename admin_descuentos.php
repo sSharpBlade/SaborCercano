@@ -20,20 +20,18 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos_admin.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Descuentos</title>
 </head>
-
-
 <body class="bg-content">
     <nav>
-        <a href="admin.php">Productos</a>
-        <a href="admin_descuentos.php">Descuentos</a>
-        <a href="admin_pedidos.php">Pedidos</a>
-        <a href="admin_perfil.php">Perfil</a>
-        <a href="php/cerrar_sesion.php">Cerrar sesión</a>
+        <a href="admin.php" style="color: white;">Productos</a>
+        <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
+        <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
+        <a href="admin_perfil.php" style="color: white;">Perfil</a>
+        <a href="php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
         <div class="animation start-sale"></div>
     </nav>
     <main class="dashboard">
