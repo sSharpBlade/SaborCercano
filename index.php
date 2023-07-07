@@ -31,83 +31,99 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
-    <div class="fondo"></div>
-    <div class="container">
-        <div class="contenido">
-            <h2 class="logo"><i class='bx bxs-coffee-alt'></i>SaborCercano</h2>
-            <div class="texto">
-                <h2>¡Bienvenido y Disfruta de tu café!</h2>
-                <p>Imagina un lugar donde los sabores exquisitos y los aromas tentadores se unen para despertar tus sentidos. Nuestros baristas expertos han seleccionado cuidadosamente los granos más finos de café de todo el mundo para brindarte una experiencia única en cada taza.</p>
-                <div class="social">
-                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-                    <a href="#"><i class='bx bxl-tiktok'></i></a>
+    <?php
+    include 'php/conexion.php';
+    $db = new DataBase();
+    $con = $db->conectar();
+    $sql = $con->prepare("SELECT * FROM datos;");
+    $sql->execute();
+    $data = $sql->fetch(PDO::FETCH_ASSOC);
+    if ($data) {
+    ?>
+        <div class="fondo" style="
+    background: url(img/<?php echo $data['fondo1'] ?>) no-repeat;
+    background-size: cover;
+    background-position: center;"></div>
+        <div class="container" style="
+    background: url(img/<?php echo $data['fondo2'] ?>) no-repeat;
+    background-size: cover;
+    background-position: center;">
+            <div class="contenido">
+                <h2 class="logo"><i class='bx bxs-coffee-alt'></i><?php echo $data['nombre'] ?></h2>
+                <div class="texto">
+                    <h2><?php echo $data['leyenda'] ?></h2>
+                    <p><?php echo $data['texto'] ?></p>
+                    <div class="social">
+                        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login">
+                <div class="formulario iniciar">
+                    <form action="php/login.php" method="post">
+                        <h2>Iniciar sesión</h2>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-envelope'></i></span>
+                            <input type="email" name="correo" required>
+                            <label>correo electrónico</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-key'></i></span>
+                            <input type="password" name="pass" required>
+                            <label>contraseña</label>
+                        </div>
+
+                        <div class="olvido">
+                            <a href="https://www.youtube.com/shorts/6Y-fXu_bqvY">¿Olvidaste tus datos?</a>
+                        </div>
+
+                        <button type="submit" class="btn">Ingresar</button>
+
+                        <div class="registrar">
+                            <p>¿No tienes cuenta? <a href="#" class="registrar-enlace">Regístrate</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="formulario registrar">
+                    <form action="php/register.php" method="post">
+                        <h2>Registrarse</h2>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-user'></i></span>
+                            <input type="text" required name="usuario">
+                            <label>nombre de usuario</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-envelope'></i></span>
+                            <input type="email" required name="correo">
+                            <label>correo electrónico</label>
+                        </div>
+                        <div class="input-box">
+                            <span class="icon"><i class='bx bxs-key'></i></span>
+                            <input type="password" required name="pass">
+                            <label>contraseña</label>
+                        </div>
+
+                        <div class="olvido">
+                            <label>
+                                <input type="checkbox" required> Acepta los <a href="https://www.youtube.com/watch?v=mCdA4bJAGGk&ab_channel=sweetblue.">términos y condiciones</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn">Registrar</button>
+
+                        <div class="registrar">
+                            <p>¿Ya tienes una cuenta? <a href="#" class="iniciar-enlace">Iniciar sesión</a></p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class="login">
-            <div class="formulario iniciar">
-                <form action="php/login.php" method="post">
-                    <h2>Iniciar sesión</h2>
-                    <div class="input-box">
-                        <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name="correo" required>
-                        <label>correo electrónico</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class='bx bxs-key'></i></span>
-                        <input type="password" name="pass" required>
-                        <label>contraseña</label>
-                    </div>
-
-                    <div class="olvido">
-                        <a href="https://www.youtube.com/shorts/6Y-fXu_bqvY">¿Olvidaste tus datos?</a>
-                    </div>
-
-                    <button type="submit" class="btn">Ingresar</button>
-
-                    <div class="registrar">
-                        <p>¿No tienes cuenta? <a href="#" class="registrar-enlace">Regístrate</a></p>
-                    </div>
-                </form>
-            </div>
-
-            <div class="formulario registrar">
-                <form action="php/register.php" method="post">
-                    <h2>Registrarse</h2>
-                    <div class="input-box">
-                        <span class="icon"><i class='bx bxs-user'></i></span>
-                        <input type="text" required name="usuario">
-                        <label>nombre de usuario</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" required name="correo">
-                        <label>correo electrónico</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><i class='bx bxs-key'></i></span>
-                        <input type="password" required name="pass">
-                        <label>contraseña</label>
-                    </div>
-
-                    <div class="olvido">
-                        <label>
-                            <input type="checkbox" required> Acepta los <a href="https://www.youtube.com/watch?v=mCdA4bJAGGk&ab_channel=sweetblue.">términos y condiciones</a>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn">Registrar</button>
-
-                    <div class="registrar">
-                        <p>¿Ya tienes una cuenta? <a href="#" class="iniciar-enlace">Iniciar sesión</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script src="js/funcion.js"></script>
+        <script src="js/funcion.js"></script>
+    <?php  } ?>
 </body>
 
 </html>
