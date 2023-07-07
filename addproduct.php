@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $con = $db->conectar();
     $image = $_FILES['img']['name'];
     $tempname = $_FILES['img']['tmp_name'];
-    $folder = "../img/producto/" . $image;
+    $folder = "img/productos/" . $image;
 
     if (move_uploaded_file($tempname, $folder)) {
         echo 'images est uplade';
