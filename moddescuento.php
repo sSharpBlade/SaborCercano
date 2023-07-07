@@ -51,7 +51,7 @@ if (!isset($_SESSION['id'])) {
             </div>
         </form>
     </div>
-    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
 </body>
 
 </html>

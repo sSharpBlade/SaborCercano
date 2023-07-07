@@ -77,7 +77,7 @@ if (!isset($_SESSION['id'])) {
         </div>
         </div>
     </main>
-    <script src="bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
 </body>
 
 </html>
