@@ -77,7 +77,7 @@ if (!isset($_SESSION['id'])) {
             </form>
         </div>
     </main>
-    <script src="funcion-audio.js"></script>
+    <script src="js/funcion-audio.js"></script>
     <script>
         function togglePasswordVisibility() {
             var passwordInput = document.getElementById("passwordInput");

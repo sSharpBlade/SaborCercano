@@ -107,7 +107,7 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
     </div>
-    <script src="funcion.js"></script>
+    <script src="js/funcion.js"></script>
 </body>
 
 </html>

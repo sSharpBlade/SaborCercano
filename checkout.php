@@ -114,7 +114,7 @@ if ($producto != null) {
             </div>
         </div>
     </main>
-    <script src="funcion-audio.js"></script>
+    <script src="js/funcion-audio.js"></script>
     <script>
         function actualizaCantidad(cantidad, id) {
             let url = 'actualizar_carrito.php'

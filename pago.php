@@ -131,7 +131,7 @@ if ($producto != null) {
             </div>
         </form>
     </main>
-    <script src="funcion-audio.js"></script>
+    <script src="js/funcion-audio.js"></script>
 </body>
 
 </html>

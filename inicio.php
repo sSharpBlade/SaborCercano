@@ -125,7 +125,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </div>
     </main>
-    <script src="funcion-audio.js"></script>
+    <script src="js/funcion-audio.js"></script>
 
     <script>
         function addProducto(id, token) {
