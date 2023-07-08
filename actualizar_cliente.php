@@ -18,11 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
 
-    // Actualizar la información del usuario en la base de datos
-    $sql = $con->prepare("UPDATE usuarios SET usuario=?, correo=?, telefono=?, direccion=? WHERE id=?");
-    $sql->execute([$nombre, $correo, $telefono, $direccion, $id_cliente]);
-
-    // Redirigir a la página del perfil o mostrar un mensaje de éxito
-    header('Location: perfil-cliente.php');
-    exit();
+    // Verificar si el nombre o el correo ya existen en la base de datos, excluyendo al usuario actual
+    $sql_check = $con->prepare("SELECT COUNT(*) AS count FROM usuarios WHERE (usuario=? OR correo=?) AND id <> ?");
+    $sql_check->execute([$nombre, $correo, $id_cliente]);
+    $result_check = $sql_check->fetch(PDO::FETCH_ASSOC);
+    if ($result_check['count'] > 0) {
+        // El nombre o el correo ya existen en la base de datos, mostrar una notificación
+        echo '<script>
+    alert("El nombre o el correo ya existen en la base de datos. Por favor, elija otro.");
+    window.location = "perfil-cliente.php";
+    </script>';
+    } else {
+        // Actualizar la información del usuario en la base de datos
+        $sql_update = $con->prepare("UPDATE usuarios SET usuario=?, correo=?, telefono=?, direccion=? WHERE id=?");
+        $sql_update->execute([$nombre, $correo, $telefono, $direccion, $id_cliente]);
+        header('Location: perfil-cliente.php');
+        exit();
+    }
 }

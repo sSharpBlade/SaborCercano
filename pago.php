@@ -122,10 +122,10 @@ if ($producto != null) {
                             </table>
                             <div class="formulario">
                                 <p class="text">Teléfono:</p>
-                                <input type="text" id="telefono" value="<?php echo $row['telefono'] ?>" required name="telefono">
+                                <input type="text" id="telefono" value="<?php echo $row['telefono'] ?>" required name="telefono" placeholder="Ingrese un número de teléfono">
                                 <br><br>
                                 <p class="text">Dirección:</p>
-                                <input type="text" id="direccion" value="<?php echo $row['direccion'] ?>" required name="direccion">
+                                <input type="text" id="direccion" value="<?php echo $row['direccion'] ?>" required name="direccion" placeholder="Ingrese una dirección">
                             </div>
                         </div>
                         <?php if ($lista_carrito != null) { ?>

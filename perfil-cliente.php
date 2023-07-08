@@ -54,22 +54,22 @@ if (!isset($_SESSION['id'])) {
         <div class="formulario">
             <form action="actualizar_cliente.php" method="post">
                 <p class="text">Usuario:</p>
-                <input type="text" id="nombre" value="<?php echo $row['usuario']; ?>" name="nombre">
+                <input type="text" id="nombre" value="<?php echo $row['usuario']; ?>" name="nombre" required placeholder="Ingrese un nombre de usuario">
                 <br><br>
                 <p class="text">Correo:</p>
-                <input type="email" name="correo" value="<?php echo $row['correo']; ?>">
+                <input type="email" name="correo" value="<?php echo $row['correo']; ?>" required placeholder="Ingrese un correo electrónico">
                 <br><br>
                 <p class="text">Contraseña:</p>
                 <div class="contra">
                     <button type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
-                    <input type="password" id="passwordInput" value="<?php echo $row['pass']; ?>">
+                    <input type="password" id="passwordInput" value="<?php echo $row['pass']; ?>" required placeholder="Ingrese una contraseña">
                 </div>
                 <br>
                 <p class="text">Teléfono:</p>
-                <input type="text" name="telefono" value="<?php echo $row['telefono']; ?>">
+                <input type="text" name="telefono" value="<?php echo $row['telefono']; ?>" placeholder="Ingrese un número de teléfono">
                 <br><br>
                 <p class="text">Dirección:</p>
-                <input type="text" name="direccion" value="<?php echo $row['direccion']; ?>">
+                <input type="text" name="direccion" value="<?php echo $row['direccion']; ?>" placeholder="Ingrese una dirección">
                 <br><br>
                 <hr>
                 <br>
