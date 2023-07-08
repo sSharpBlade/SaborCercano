@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Actualizar la información del usuario en la base de datos
         $sql_update = $con->prepare("UPDATE usuarios SET usuario=?, correo=?, telefono=?, direccion=? WHERE id=?");
         $sql_update->execute([$nombre, $correo, $telefono, $direccion, $id_cliente]);
-        header('Location: ./perfil-cliente.php');
+        header("Location: ./perfil-cliente.php");
         exit();
     }
 }

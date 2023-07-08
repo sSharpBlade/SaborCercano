@@ -53,5 +53,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error al insertar los datos en la base de datos: " . $e->getMessage();
     }
 }
-header('Location: inicio.php');
+header("Location: inicio.php");
 exit;

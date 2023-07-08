@@ -8,4 +8,4 @@ if (isset($id)) {
     $stmt = $con->prepare("UPDATE `saborcercano`.`pedidos` SET `estado` = '1' WHERE (`id` = '$id');");
     $stmt->execute();
 }
-header('location:admin_pedidos.php');
+header("location:admin_pedidos.php");

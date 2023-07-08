@@ -3,7 +3,7 @@ $codigo = $_POST['codigo_descuento'];
 
 if (empty($codigo)) {
     // Redirigir directamente a pago.php
-    header('Location: pago.php');
+    header("Location: pago.php");
     exit();
 } else {
 

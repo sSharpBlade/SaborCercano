@@ -8,4 +8,4 @@ if (isset($id)) {
     $stmt = $con->prepare("DELETE FROM productos WHERE id=$id");
     $stmt->execute();
 }
-header('location:admin.php');
+header("location:admin.php");

@@ -22,6 +22,6 @@ if (isset($_POST['submit'])) {
     } else {
         $requete = $con->prepare("INSERT INTO descuentos(codigo, porcentaje) VALUES('$Codigo','$Porcentaje')");
         $requete->execute();
-        header('location:admin_descuentos.php');
+        header("location:admin_descuentos.php");
     }
 }

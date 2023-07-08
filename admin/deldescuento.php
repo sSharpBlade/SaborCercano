@@ -8,4 +8,4 @@ if (isset($id)) {
     $stmt = $con->prepare("DELETE FROM descuentos WHERE id=$id");
     $stmt->execute();
 }
-header('location:admin_descuentos.php');
+header("location:admin_descuentos.php");

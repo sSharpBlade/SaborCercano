@@ -22,13 +22,10 @@ if (isset($_POST['submit'])) {
         $tempname = $_FILES['img']['tmp_name'];
         $folder = "../img/productos/" . $image;
 
-        if (move_uploaded_file($tempname, $folder)) {
-            echo 'La imagen se ha subido correctamente';
-        }
+        move_uploaded_file($tempname, $folder);
 
         $requete = $con->prepare("INSERT INTO productos(img, name, price) VALUES('$image','$Name','$Price')");
         $requete->execute();
-        header('location:admin.php');
+        header("location:./admin.php");
     }
 }
-

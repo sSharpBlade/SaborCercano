@@ -11,7 +11,7 @@ if (isset($_SESSION['id'])) {
         if ($row['usuario'] != "admin") {
             header("location: client/inicio.php");
         } else {
-            header("location: admin.php");
+            header("location: admin/admin.php");
         }
     }
 }
