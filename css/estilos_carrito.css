@@ -160,3 +160,43 @@
     position: relative;
     border-radius: 5px;
 }
+
+footer{
+  margin: 5% 0;
+  font-family: 'Poppins',sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+footer a{
+  position: relative;
+  background: #444;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: 0.5s;
+}
+
+footer a:hover{
+  background: var(--clr);
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.25em;
+}
+
+footer a::before{
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #27282c;
+}
+
+footer a span{
+  position: relative;
+  z-index: 1;
+}

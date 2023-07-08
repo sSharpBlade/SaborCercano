@@ -50,6 +50,13 @@ if ($producto != null) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:url" content="https://fisei.uta.edu.ec/v4.0/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ven y disfruta de un delicioso café">
+    <meta property="og:description" content="SaborCercano tu cafeteria ideal">
+    <meta property="og:url" content="https://fisei.uta.edu.ec/v4.0/">
+    
     <link rel="stylesheet" href="css/estilos_cliente.css">
     <link rel="stylesheet" href="css/estilos_carrito.css">
     <title>Terminar pago</title>
@@ -73,7 +80,7 @@ if ($producto != null) {
             <div class="contenedor">
                 <div class="row">
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63821.72752710952!2d-78.69535478165557!3d-1.2571425592900651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d381a37fef551f%3A0x7a2dbc24d832161b!2sAmbato!5e0!3m2!1ses-419!2sec!4v1688335422248!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1828.8919063369544!2d-78.62419546176876!3d-1.2679100726883996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d3822613026139%3A0x69e6b9688df90af2!2sFacultad%20de%20Ingenieria%20en%20Sistemas%20Electronica%20e%20Industrial!5e0!3m2!1ses-419!2sec!4v1688769073288!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="paga">
                         <div class="table_res">
@@ -131,6 +138,10 @@ if ($producto != null) {
             </div>
         </form>
     </main>
+    <footer>
+        <a href="https://facebook.com/share.php?u=https://fisei.uta.edu.ec/v4.0/&t=Ven y disfruta de un delicioso café" target="_blank" style="--clr:#1e9bff;"><span>Facebook</span></a>
+        <a href="https://api.whatsapp.com/send?text=https://fisei.uta.edu.ec/v4.0/" target="_blank" style="--clr:#6eff3e;"><span>WhatsApp</span></a>
+    </footer>
     <script src="js/funcion-audio.js"></script>
 </body>
 

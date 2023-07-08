@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $detalle_sql->execute([$pedido_id, $id_producto, $cantidad]);
         }
         $con->commit();
-        echo $total;
         unset($_SESSION['carrito']);
 
-        exit;
     } catch (PDOException $e) {
         $con->rollback();
         echo "Error al insertar los datos en la base de datos: " . $e->getMessage();
     }
 }
+header('Location: inicio.php');
+exit;
