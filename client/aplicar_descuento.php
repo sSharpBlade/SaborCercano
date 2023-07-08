@@ -8,8 +8,8 @@ if (empty($codigo)) {
 } else {
 
     // Conectarse a la base de datos
-    include 'php/conexion.php';
-    require 'php/config.php';
+    include '../php/conexion.php';
+    require '../php/config.php';
     $db = new DataBase();
     $con = $db->conectar();
 

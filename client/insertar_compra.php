@@ -1,6 +1,6 @@
 <?php
-include 'php/conexion.php';
-require 'php/config.php';
+include '../php/conexion.php';
+require '../php/config.php';
 
 $id = $_SESSION['id'];
 $db = new DataBase();

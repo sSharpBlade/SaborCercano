@@ -4,15 +4,15 @@ session_start();
 if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
-            window.location = "index.php";
+            window.location = "../index.php";
         </script>';
     session_destroy();
     die();
 }
 //session_destroy();
 
-include 'php/conexion.php';
-require 'php/config.php';
+include '../php/conexion.php';
+require '../php/config.php';
 $db = new DataBase();
 $con = $db->conectar();
 
@@ -38,8 +38,8 @@ if ($producto != null) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_cliente.css">
-    <link rel="stylesheet" href="css/estilos_carrito.css">
+    <link rel="stylesheet" href="../css/estilos_cliente.css">
+    <link rel="stylesheet" href="../css/estilos_carrito.css">
     <title>Carrito</title>
 </head>
 
@@ -49,8 +49,8 @@ if ($producto != null) {
             <a href="inicio.php">Catálogo</a>
             <a href="checkout.php">Carrito <span id="num_cart"><?php echo $num_cart; ?></span></a>
             <a href="perfil-cliente.php">Perfil</a>
-            <a href="php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
-            <audio loop id="miAudio" src="music/spider.mp3" type="audio/mpeg"></audio>
+            <a href="../php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
+            <audio loop id="miAudio" src="../music/spider.mp3" type="audio/mpeg"></audio>
             <div class="audio-controls">
                 <button id="playButton" class="play-button"></button>
             </div>
@@ -118,10 +118,10 @@ if ($producto != null) {
             </div>
         </div>
     </main>
-    <script src="js/funcion-audio.js"></script>
+    <script src="../js/funcion-audio.js"></script>
     <script>
         function actualizaCantidad(cantidad, id) {
-            let url = 'actualizar_carrito.php'
+            let url = './actualizar_carrito.php'
             let formData = new FormData()
             formData.append('id', id)
             formData.append('cantidad', cantidad)
@@ -154,7 +154,7 @@ if ($producto != null) {
         let eliminarModal = document.getElementById('eliminar')
 
         function eliminar(id) {
-            let url = 'actualizar_carrito.php'
+            let url = './actualizar_carrito.php'
             let formData = new FormData()
             formData.append('id', id)
             formData.append('action', 'eliminar')

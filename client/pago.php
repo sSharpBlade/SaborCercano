@@ -1,13 +1,13 @@
 <?php
-include 'php/conexion.php';
-require 'php/config.php';
+include '../php/conexion.php';
+require '../php/config.php';
 
 session_start();
 
 if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
-            window.location = "index.php";
+            window.location = "../index.php";
         </script>';
     session_destroy();
     die();
@@ -57,8 +57,8 @@ if ($producto != null) {
     <meta property="og:description" content="SaborCercano tu cafeteria ideal">
     <meta property="og:url" content="https://fisei.uta.edu.ec/v4.0/">
     
-    <link rel="stylesheet" href="css/estilos_cliente.css">
-    <link rel="stylesheet" href="css/estilos_carrito.css">
+    <link rel="stylesheet" href="../css/estilos_cliente.css">
+    <link rel="stylesheet" href="../css/estilos_carrito.css">
     <title>Terminar pago</title>
 </head>
 
@@ -68,15 +68,15 @@ if ($producto != null) {
             <a href="inicio.php">Catálogo</a>
             <a href="checkout.php">Carrito <span id="num_cart"><?php echo $num_cart; ?></span></a>
             <a href="perfil-cliente.php">Perfil</a>
-            <a href="php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
-            <audio loop id="miAudio" src="music/spider.mp3" type="audio/mpeg"></audio>
+            <a href="../php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
+            <audio loop id="miAudio" src="../music/spider.mp3" type="audio/mpeg"></audio>
             <div class="audio-controls">
                 <button id="playButton" class="play-button"></button>
             </div>
         </nav>
     </header>
     <main>
-        <form action="insertar_compra.php" method="post">
+        <form action="./insertar_compra.php" method="post">
             <div class="contenedor">
                 <div class="row">
                     <div class="map">
@@ -142,7 +142,7 @@ if ($producto != null) {
         <a href="https://facebook.com/share.php?u=https://fisei.uta.edu.ec/v4.0/&t=Ven y disfruta de un delicioso café" target="_blank" style="--clr:#1e9bff;"><span>Facebook</span></a>
         <a href="https://api.whatsapp.com/send?text=https://fisei.uta.edu.ec/v4.0/" target="_blank" style="--clr:#6eff3e;"><span>WhatsApp</span></a>
     </footer>
-    <script src="js/funcion-audio.js"></script>
+    <script src="../js/funcion-audio.js"></script>
 </body>
 
 </html>

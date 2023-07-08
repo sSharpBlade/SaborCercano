@@ -4,15 +4,15 @@ session_start();
 if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
-            window.location = "index.php";
+            window.location = "../index.php";
         </script>';
     session_destroy();
     die();
 }
 //session_destroy();
 
-include 'php/conexion.php';
-require 'php/config.php';
+include '../php/conexion.php';
+require '../php/config.php';
 $db = new DataBase();
 $con = $db->conectar();
 
@@ -30,8 +30,8 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_cliente.css">
-    <link rel="stylesheet" href="css/estilos_productos.css">
+    <link rel="stylesheet" href="../css/estilos_cliente.css">
+    <link rel="stylesheet" href="../css/estilos_productos.css">
     <title>Inicio</title>
 </head>
 
@@ -41,8 +41,8 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             <a href="inicio.php">Catálogo</a>
             <a href="checkout.php">Carrito <span id="num_cart"><?php echo $num_cart; ?></span></a>
             <a href="perfil-cliente.php">Perfil</a>
-            <a href="php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
-            <audio loop id="miAudio" src="music/spider.mp3" type="audio/mpeg"></audio>
+            <a href="../php/cerrar_sesion.php" class="cs">Cerrar sesión</a>
+            <audio loop id="miAudio" src="../music/spider.mp3" type="audio/mpeg"></audio>
             <div class="audio-controls">
                 <button id="playButton" class="play-button"></button>
                 <!-- <div class="progress-bar">
@@ -76,13 +76,13 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <div class="card">
                     <?php
                     $id = $value['id'];
-                    $img = "img/productos/$id.jpg";
+                    $img = "../img/productos/$id.jpg";
                     if (!file_exists($img)) {
-                        $img = "img/cafe.jpg";
+                        $img = "../img/cafe.jpg";
                     }
                     ?>
                     <div class="imgBx" style="
-                        background: url(img/productos/<?php echo $value['img'] ?>); 
+                        background: url(../img/productos/<?php echo $value['img'] ?>); 
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;">
@@ -104,13 +104,13 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <div class="card">
                     <?php
                     $id = $row['id'];
-                    $img = "img/productos/$id.jpg";
+                    $img = "../img/productos/$id.jpg";
                     if (!file_exists($img)) {
-                        $img = "img/cafe.jpg";
+                        $img = "../img/cafe.jpg";
                     }
                     ?>
                     <div class="imgBx" style="
-                    background: url(img/productos/<?php echo $row['img'] ?>); 
+                    background: url(../img/productos/<?php echo $row['img'] ?>); 
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;">
@@ -125,11 +125,11 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
             <?php } ?>
         </div>
     </main>
-    <script src="js/funcion-audio.js"></script>
+    <script src="../js/funcion-audio.js"></script>
 
     <script>
         function addProducto(id, token) {
-            let url = 'carrito.php'
+            let url = './carrito.php'
             let formData = new FormData()
             formData.append('id', id)
             formData.append('token', token)

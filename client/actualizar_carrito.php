@@ -1,6 +1,6 @@
 <?php
-require 'php/config.php';
-require 'php/conexion.php';
+require '../php/config.php';
+require '../php/conexion.php';
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];

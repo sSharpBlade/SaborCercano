@@ -9,7 +9,7 @@ if (isset($_SESSION['id'])) {
     $row = mysqli_fetch_assoc($consulta);
     if ($row) {
         if ($row['usuario'] != "admin") {
-            header("location: inicio.php");
+            header("location: client/inicio.php");
         } else {
             header("location: admin.php");
         }
