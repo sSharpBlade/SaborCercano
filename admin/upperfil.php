@@ -1,5 +1,5 @@
 <?php
-include 'php/conexion.php';
+include '../php/conexion.php';
 if (isset($_POST['submit'])) {
     $db = new DataBase();
     $con = $db->conectar();
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         $allowedExtensions = array('jpg', 'jpeg', 'png');
         if (in_array($imgExt1, $allowedExtensions)) {
             // Ruta de destino para guardar la imagen
-            $imgDestination1 = "img/" . $imgName1;
+            $imgDestination1 = "../img/" . $imgName1;
 
             // Mover la imagen al destino
             if (!file_exists($imgDestination1)) {
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
         $allowedExtensions = array('jpg', 'jpeg', 'png');
         if (in_array($imgExt2, $allowedExtensions)) {
             // Ruta de destino para guardar la imagen
-            $imgDestination2 = "img/" . $imgName2;
+            $imgDestination2 = "../img/" . $imgName2;
 
             // Mover la imagen al destino
             if (!file_exists($imgDestination2)) {

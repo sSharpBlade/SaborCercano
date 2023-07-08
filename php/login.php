@@ -18,10 +18,10 @@ if ($row) {
     $name = $row['usuario'];
     $_SESSION['id'] = $row['id'];
     if ($name == "admin") {
-        header("location: ../admin.php");
+        header("location: ../admin/admin.php");
         exit;
     }
-    header("location: ../inicio.php");
+    header("location: ../client/inicio.php");
     exit;
 } else {
     header("location: ../index.php");

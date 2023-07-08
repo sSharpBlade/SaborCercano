@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
-            window.location = "index.php";
+            window.location = "../index.php";
         </script>';
     session_destroy();
     die();
@@ -20,9 +20,9 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/estilos_admin.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/estilos_admin.css">
 </head>
 
 <body>
@@ -31,11 +31,11 @@ if (!isset($_SESSION['id'])) {
         <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
         <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
         <a href="admin_perfil.php" style="color: white;">Perfil</a>
-        <a href="php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
+        <a href="../php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
         <div class="animation start-sale"></div>
     </nav>
     <?php
-    include 'php/conexion.php';
+    include '../php/conexion.php';
     $_SESSION['descuento'] = $_GET['Id'];
     $id = $_SESSION['descuento'];
     $db = new DataBase();
@@ -60,7 +60,7 @@ if (!isset($_SESSION['id'])) {
             </div>
         </form>
     </div>
-    <script src="js/bootstrap.bundle.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
 </body>
 
 </html>

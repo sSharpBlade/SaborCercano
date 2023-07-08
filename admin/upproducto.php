@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id = $_SESSION['producto'];
-include 'php/conexion.php';
+include '../php/conexion.php';
 
 if (isset($_POST['submit'])) {
     $db = new DataBase();
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
             $allowedExtensions = array('jpg', 'jpeg', 'png');
             if (in_array($imgExt, $allowedExtensions)) {
                 // Ruta de destino para guardar la imagen
-                $imgDestination = "img/productos/" . $imgName;
+                $imgDestination = "../img/productos/" . $imgName;
 
                 // Mover la imagen al destino
                 if (!file_exists($imgDestination)) {

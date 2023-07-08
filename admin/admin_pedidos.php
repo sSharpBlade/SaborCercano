@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['id'])) {
     echo '<script>
             alert("Por favor inicie sesión");
-            window.location = "index.php";
+            window.location = "../index.php";
         </script>';
     session_destroy();
     die();
@@ -19,7 +19,7 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos_admin.css">
+    <link rel="stylesheet" href="../css/estilos_admin.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -33,7 +33,7 @@ if (!isset($_SESSION['id'])) {
         <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
         <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
         <a href="admin_perfil.php" style="color: white;">Perfil</a>
-        <a href="php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
+        <a href="../php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
         <div class="animation start-give"></div>
     </nav>
     <main class="dashboard">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['id'])) {
                 </thead>
                 <tbody>
                     <?php
-                    include 'php/conexion.php';
+                    include '../php/conexion.php';
                     $db = new DataBase();
                     $con = $db->conectar();
                     $result = $con->query("SELECT pedidos.id AS pedido_id, pedidos.id_cliente, pedidos.total, pedidos.telefono, pedidos.direccion, detalle_pedido.id_producto, detalle_pedido.cantidad FROM pedidos JOIN detalle_pedido ON pedidos.id = detalle_pedido.id_pedido WHERE pedidos.estado = 0");

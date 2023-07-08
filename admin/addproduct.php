@@ -1,5 +1,5 @@
 <?php
-include 'php/conexion.php';
+include '../php/conexion.php';
 
 if (isset($_POST['submit'])) {
     $db = new DataBase();
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     } else {
         $image = $_FILES['img']['name'];
         $tempname = $_FILES['img']['tmp_name'];
-        $folder = "img/productos/" . $image;
+        $folder = "../img/productos/" . $image;
 
         if (move_uploaded_file($tempname, $folder)) {
             echo 'La imagen se ha subido correctamente';
