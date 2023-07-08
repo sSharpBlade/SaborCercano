@@ -49,11 +49,11 @@ if (!isset($_SESSION['id'])) {
         <form method="POST" action="updescuento.php" enctype="multipart/form-data">
             <div class="">
                 <label for="recipient-name" class="col-form-label">Código:</label>
-                <input type="text" class="form-control" id="recipient-name" name="Codigo" value="<?php echo $table['codigo'] ?>">
+                <input type="text" class="form-control" id="recipient-name" name="Codigo" value="<?php echo $table['codigo'] ?>" required>
             </div>
             <div class="">
                 <label for="recipient-name" class="col-form-label">Porcentaje:</label>
-                <input type="text" class="form-control" id="recipient-name" name="Porcentaje" value="<?php echo $table['porcentaje'] ?>">
+                <input type="text" class="form-control" id="recipient-name" name="Porcentaje" value="<?php echo $table['porcentaje'] ?>" required>
             </div>
             <div class="modal-footer">
                 <button type="submit" name="submit" class="btn btn-primary">Actualizar descuento</button>

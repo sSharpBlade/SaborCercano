@@ -53,11 +53,11 @@ if (!isset($_SESSION['id'])) {
             </div>
             <div class="">
                 <label for="recipient-name" class="col-form-label">Nombre:</label>
-                <input type="text" class="form-control" id="recipient-name" name="Name" value="<?php echo $table['name'] ?>">
+                <input type="text" class="form-control" id="recipient-name" name="Name" value="<?php echo $table['name'] ?>" required>
             </div>
             <div class="">
                 <label for="recipient-name" class="col-form-label">Precio:</label>
-                <input type="text" class="form-control" id="recipient-name" name="Price" value="<?php echo $table['price'] ?>">
+                <input type="text" class="form-control" id="recipient-name" name="Price" value="<?php echo $table['price'] ?>" required>
             </div>
             <div class="modal-footer">
                 <button type="submit" name="submit" class="btn btn-primary">Actualizar producto</button>

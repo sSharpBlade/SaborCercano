@@ -55,7 +55,7 @@ if (isset($_SESSION['id'])) {
                     <p><?php echo $data['texto'] ?></p>
                     <div class="social">
                         <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-                        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                        <a href="https://www.instagram.com/edwin2lopez/" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
                         <a href="#"><i class='bx bxl-tiktok'></i></a>
                     </div>
                 </div>

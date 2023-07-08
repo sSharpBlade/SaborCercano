@@ -43,3 +43,15 @@ main{
     position: relative;
     border-radius: 12px;
 }
+
+.pass-btn{
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+}

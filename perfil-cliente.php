@@ -61,7 +61,7 @@ if (!isset($_SESSION['id'])) {
                 <br><br>
                 <p class="text">Contraseña:</p>
                 <div class="contra">
-                    <button type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
+                    <button class="pass-btn" type="button" id="toggleButton" onclick="togglePasswordVisibility()">Mostrar</button>
                     <input type="password" id="passwordInput" value="<?php echo $row['pass']; ?>" required placeholder="Ingrese una contraseña">
                 </div>
                 <br>
