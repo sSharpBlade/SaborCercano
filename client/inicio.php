@@ -16,7 +16,7 @@ require '../php/config.php';
 $db = new DataBase();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT * FROM saborcercano.productos;");
+$sql = $con->prepare("SELECT * FROM productos;");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
