@@ -18,6 +18,14 @@ h2{
     align-items: center;
 }
 
+.favoritos{
+    padding: 70px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .card{
     position: relative;
     width: 320px;

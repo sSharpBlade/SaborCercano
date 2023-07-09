@@ -1,5 +1,5 @@
 <?php
-$codigo = $_POST['codigo_descuento'];
+$codigo = $_POST['codigo_descuento'] ?? null;
 
 if (empty($codigo)) {
     // Redirigir directamente a pago.php
