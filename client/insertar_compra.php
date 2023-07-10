@@ -30,12 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $total = $_SESSION['total'];
 
-    $sql = $con->prepare("INSERT INTO pedidos (id_cliente, total, telefono, direccion, fecha) VALUES (?, ?, ?, ?, NOW())");
+    date_default_timezone_set('America/Guayaquil');
+    $fecha_hora_ecuador = new DateTime();
+
+    $sql = $con->prepare("INSERT INTO pedidos (id_cliente, total, telefono, direccion, fecha) VALUES (?, ?, ?, ?, ?)");
 
     $con->beginTransaction();
 
     try {
-        $sql->execute([$id_cliente, $total, $telefono, $direccion]);
+        $sql->execute([$id_cliente, $total, $telefono, $direccion, $fecha_hora_ecuador->format('d-m-Y H:i:s')]);
         $pedido_id = $con->lastInsertId(); // Obtiene el ID del pedido insertado
 
         $detalle_sql = $con->prepare("INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad) VALUES (?, ?, ?)");
@@ -47,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $con->commit();
         unset($_SESSION['carrito']);
-
     } catch (PDOException $e) {
         $con->rollback();
         echo "Error al insertar los datos en la base de datos: " . $e->getMessage();
