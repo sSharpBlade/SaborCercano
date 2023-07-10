@@ -33,6 +33,16 @@ CREATE TABLE `datos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `datos`
+--
+
+LOCK TABLES `datos` WRITE;
+/*!40000 ALTER TABLE `datos` DISABLE KEYS */;
+INSERT INTO `datos` VALUES ('SaborCercano','cafe.jpg','Coffee-beans-hot-cup-coffee-bag_2560x1600.jpg','¡Bienvenido y Disfruta de tu café!','Imagina un lugar donde los sabores exquisitos y los aromas tentadores se unen para despertar tus sentidos. Nuestros baristas expertos han seleccionado cuidadosamente los granos más finos de café de todo el mundo para brindarte una experiencia única en cada taza.',10.00);
+/*!40000 ALTER TABLE `datos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `descuentos`
 --
 
@@ -48,6 +58,15 @@ CREATE TABLE `descuentos` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `descuentos`
+--
+
+LOCK TABLES `descuentos` WRITE;
+/*!40000 ALTER TABLE `descuentos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `descuentos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `detalle_pedido`
@@ -68,6 +87,15 @@ CREATE TABLE `detalle_pedido` (
   CONSTRAINT `id_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `detalle_pedido`
+--
+
+LOCK TABLES `detalle_pedido` WRITE;
+/*!40000 ALTER TABLE `detalle_pedido` DISABLE KEYS */;
+/*!40000 ALTER TABLE `detalle_pedido` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pedidos`
@@ -91,6 +119,15 @@ CREATE TABLE `pedidos` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `pedidos`
+--
+
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `productos`
 --
 
@@ -107,6 +144,16 @@ CREATE TABLE `productos` (
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productos`
+--
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'1.jpg','Café',1.00),(2,'2.jpg','Chocolate',2.00);
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usuarios`
@@ -128,6 +175,16 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `usuario_UNIQUE` (`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'admin','admin@admin','admin',NULL,NULL),(2,'Edwin','edwin2004@gmail.com','edwin2004','0992564027','Quiz Quiz y Tungurahua');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -138,4 +195,4 @@ CREATE TABLE `usuarios` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-09 21:48:00
+-- Dump completed on 2023-07-09 22:23:21
