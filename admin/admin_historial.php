@@ -35,7 +35,7 @@ if (!isset($_SESSION['id'])) {
         <a href="admin_perfil.php" style="color: white;">Perfil</a>
         <a href="admin_historial.php" style="color: white;">Historial</a>
         <a href="../php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
-        <div class="animation start-give"></div>
+        <div class="animation start-history"></div>
     </nav>
     <main class="dashboard">
         <div class="table-responsive">
@@ -49,6 +49,7 @@ if (!isset($_SESSION['id'])) {
                         <th>Total</th>
                         <th>Teléfono</th>
                         <th>Dirección</th>
+                        <th>Fecha</th>
                         <th class="opacity-0">list</th>
                     </tr>
                 </thead>
@@ -57,13 +58,14 @@ if (!isset($_SESSION['id'])) {
                     include '../php/conexion.php';
                     $db = new DataBase();
                     $con = $db->conectar();
-                    $result = $con->query("SELECT pedidos.id AS pedido_id, pedidos.id_cliente, pedidos.total, pedidos.telefono, pedidos.direccion, detalle_pedido.id_producto, detalle_pedido.cantidad FROM pedidos JOIN detalle_pedido ON pedidos.id = detalle_pedido.id_pedido WHERE pedidos.estado = 0");
+                    $result = $con->query("SELECT pedidos.id AS pedido_id, pedidos.id_cliente, pedidos.total, pedidos.telefono, pedidos.direccion, pedidos.fecha, detalle_pedido.id_producto, detalle_pedido.cantidad FROM pedidos JOIN detalle_pedido ON pedidos.id = detalle_pedido.id_pedido WHERE pedidos.estado = 1");
 
                     $current_pedido_id = null;
                     $current_cliente_id = null;
                     $current_total = null;
                     $current_telefono = null;
                     $current_direccion = null;
+                    $current_fecha = null;
 
                     foreach ($result as $row) :
                         $pedido_id = $row['pedido_id'];
@@ -73,6 +75,7 @@ if (!isset($_SESSION['id'])) {
                         $total = $row['total'];
                         $telefono = $row['telefono'];
                         $direccion = $row['direccion'];
+                        $fecha = $row['fecha'];
 
                         if ($current_pedido_id === null || $current_pedido_id !== $pedido_id) {
                             // Mostrar la fila del pedido solo una vez
@@ -81,6 +84,7 @@ if (!isset($_SESSION['id'])) {
                             $current_total = $total;
                             $current_telefono = $telefono;
                             $current_direccion = $direccion;
+                            $current_fecha = $fecha;
                     ?>
                             <tr class="bg-white align-middle">
                                 <td></td>
@@ -90,9 +94,7 @@ if (!isset($_SESSION['id'])) {
                                 <td><?php echo $current_total; ?></td>
                                 <td><?php echo $current_telefono; ?></td>
                                 <td><?php echo $current_direccion; ?></td>
-                                <td class="d-md-flex gap-3 mt-3">
-                                    <a href="checkPedido.php?Id=<?php echo $current_pedido_id; ?>"><i class="far fa-check"></i></a>
-                                </td>
+                                <td><?php echo $current_fecha; ?></td>
                             </tr>
                         <?php
                         } else {

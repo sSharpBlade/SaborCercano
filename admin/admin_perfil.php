@@ -32,6 +32,7 @@ if (!isset($_SESSION['id'])) {
         <a href="admin_descuentos.php" style="color: white;">Descuentos</a>
         <a href="admin_pedidos.php" style="color: white;">Pedidos</a>
         <a href="admin_perfil.php" style="color: white;">Perfil</a>
+        <a href="admin_historial.php" style="color: white;">Historial</a>
         <a href="../php/cerrar_sesion.php" style="color: white;">Cerrar sesión</a>
         <div class="animation start-perfil" style="color: white;"></div>
     </nav>

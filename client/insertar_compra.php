@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $total = $_SESSION['total'];
 
-    $sql = $con->prepare("INSERT INTO pedidos (id_cliente, total, telefono, direccion) VALUES (?, ?, ?, ?)");
+    $sql = $con->prepare("INSERT INTO pedidos (id_cliente, total, telefono, direccion, fecha) VALUES (?, ?, ?, ?, NOW())");
 
     $con->beginTransaction();
 
