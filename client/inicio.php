@@ -90,7 +90,9 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="content">
                         <span class="price">
-                            <button type="button" class="a" onclick="addProducto(<?php echo $value['id']; ?>, '<?php echo hash_hmac('sha1', $value['id'], KEY_TOKEN); ?>')">$<?php echo $value['price'] ?></button>
+                            <?php $originalPrice = $value['price']; ?>
+                            <a href="#" class="a" onmouseover="cambiarTexto(this, 'Comprar')" onmouseout="restaurarTexto(this, '<?php echo '$' . $originalPrice; ?>')" onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>')">
+                                $<?php echo $originalPrice; ?></a>
                         </span>
                         <h4><?php echo $value['name'] ?></h4>
                     </div>
@@ -118,7 +120,9 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="content">
                         <span class="price">
-                            <button type="button" class="a" onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>')">$<?php echo $row['price'] ?></button>
+                            <?php $originalPrice = $row['price']; ?>
+                            <a href="#" class="a" onmouseover="cambiarTexto(this, 'Comprar')" onmouseout="restaurarTexto(this, '<?php echo '$' . $originalPrice; ?>')" onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1', $row['id'], KEY_TOKEN); ?>')">
+                                $<?php echo $originalPrice; ?></a>
                         </span>
                         <h4><?php echo $row['name'] ?></h4>
                     </div>
@@ -146,6 +150,14 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                         elemento.innerHTML = data.numero
                     }
                 })
+        }
+
+        function cambiarTexto(elemento, nuevoTexto) {
+            elemento.innerHTML = nuevoTexto;
+        }
+
+        function restaurarTexto(elemento, textoOriginal) {
+            elemento.innerHTML = textoOriginal;
         }
     </script>
 </body>

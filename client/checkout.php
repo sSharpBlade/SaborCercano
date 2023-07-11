@@ -108,7 +108,12 @@ if ($producto != null) {
                     <form action="aplicar_descuento.php" method="POST">
                         <div class="pago">
                             <?php
-                            if ($_SESSION['total'] >= 10.00) { ?>
+                            $db = new DataBase();
+                            $con = $db->conectar();
+                            $sql = $con->prepare("SELECT * FROM datos;");
+                            $sql->execute();
+                            $data = $sql->fetch(PDO::FETCH_ASSOC);
+                            if ($_SESSION['total'] >= $data['descuento']) { ?>
                                 <input type="text" name="codigo_descuento" placeholder="Descuento" class="descuento">
                             <?php }
                             ?>
