@@ -57,7 +57,7 @@ if (!isset($_SESSION['id'])) {
                     include '../php/conexion.php';
                     $db = new DataBase();
                     $con = $db->conectar();
-                    $result = $con->query("SELECT pedidos.id AS pedido_id, pedidos.id_cliente, pedidos.total, pedidos.telefono, pedidos.direccion, detalle_pedido.id_producto, detalle_pedido.cantidad FROM pedidos JOIN detalle_pedido ON pedidos.id = detalle_pedido.id_pedido WHERE pedidos.estado = 0");
+                    $result = $con->query("SELECT pedidos.id AS pedido_id, pedidos.id_cliente, pedidos.total, pedidos.telefono, pedidos.direccion, detalle_pedido.id_producto, detalle_pedido.cantidad FROM pedidos JOIN detalle_pedido ON pedidos.id = detalle_pedido.id_pedido WHERE pedidos.estado = 0 ORDER BY pedidos.fecha ASC");
 
                     $current_pedido_id = null;
                     $current_cliente_id = null;
