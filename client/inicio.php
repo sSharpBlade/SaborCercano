@@ -77,13 +77,13 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <div class="card">
                     <?php
                     $id = $value['id'];
-                    $img = "../img/productos/$id.jpg";
-                    if (!file_exists($img)) {
-                        $img = "../img/cafe.jpg";
+                    $img = $value['img'];
+                    if ($img == null) {
+                        $img = "default.png";
                     }
                     ?>
                     <div class="imgBx" style="
-                        background: url(../img/productos/<?php echo $value['img'] ?>); 
+                    background: url(../img/productos/<?php echo $img ?>);  
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;">
@@ -107,13 +107,13 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <div class="card">
                     <?php
                     $id = $row['id'];
-                    $img = "../img/productos/$id.jpg";
-                    if (!file_exists($img)) {
-                        $img = "../img/cafe.jpg";
+                    $img = $row['img'];
+                    if ($img == null) {
+                        $img = "default.png";
                     }
                     ?>
                     <div class="imgBx" style="
-                    background: url(../img/productos/<?php echo $row['img'] ?>); 
+                    background: url(../img/productos/<?php echo $img ?>); 
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;">

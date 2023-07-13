@@ -63,7 +63,14 @@ if (!isset($_SESSION['id'])) {
                     foreach ($result as $row) :
                     ?>
                         <tr class="bg-white align-middle">
-                            <td><img src="../img/productos/<?php echo $row['img'] ?>" alt="img" height="50" with="50"></td>
+                            <td>
+                                <?php
+                                $img = $row['img'];
+                                if ($img == null) {
+                                    $img = "default.png";
+                                } ?>
+                                <img src="../img/productos/<?php echo $img ?>" alt="img" height="50" with="50">
+                            </td>
                             <td><?php echo $row['name'] ?></td>
                             <td><?php echo $row['price'] ?></td>
                             <td class="d-md-flex gap-3 mt-3">
