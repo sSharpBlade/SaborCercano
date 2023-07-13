@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $correo = $_POST['correo'];
     $telefono = $_POST['telefono'];
     $direccion = $_POST['direccion'];
+    $pass = $_POST['pass'];
 
     // Verificar si el nombre o el correo ya existen en la base de datos, excluyendo al usuario actual
     $sql_check = $con->prepare("SELECT COUNT(*) AS count FROM usuarios WHERE (usuario=? OR correo=?) AND id <> ?");
@@ -30,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>';
     } else {
         // Actualizar la información del usuario en la base de datos
-        $sql_update = $con->prepare("UPDATE usuarios SET usuario=?, correo=?, telefono=?, direccion=? WHERE id=?");
-        $sql_update->execute([$nombre, $correo, $telefono, $direccion, $id_cliente]);
+        $sql_update = $con->prepare("UPDATE usuarios SET usuario=?, correo=?, telefono=?, direccion=?, pass=? WHERE id=?");
+        $sql_update->execute([$nombre, $correo, $telefono, $direccion, $pass, $id_cliente]);
         header("Location: ./perfil-cliente.php");
         exit();
     }
