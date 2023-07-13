@@ -49,7 +49,7 @@ if (isset($_SESSION['id'])) {
     background-size: cover;
     background-position: center;">
             <div class="contenido">
-                <h2 class="logo"><i class='bx bxs-coffee-alt'></i><?php echo $data['nombre'] ?></h2>
+                <h2 class="logo"><?php echo $data['nombre'] ?></h2>
                 <div class="texto">
                     <h2><?php echo $data['leyenda'] ?></h2>
                     <p><?php echo $data['texto'] ?></p>
